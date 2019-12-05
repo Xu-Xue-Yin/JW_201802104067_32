@@ -17,12 +17,11 @@ public class Filter10_Encoding implements Filter {
         HttpServletResponse response=(HttpServletResponse)servletResponse;
         String path= request.getRequestURI();
         String method=request.getMethod();
-        if (!path.contains("/login")){
-            response.setContentType("text/html;charset=UTF-8");
-            if (method.equals("POST")||method.equals("PUT")){
-                request.setCharacterEncoding("UTF-8");
-            }
+        response.setContentType("text/html;charset=UTF-8");
+        if (method.equals("POST")||method.equals("PUT")){
+            request.setCharacterEncoding("UTF-8");
         }
+
         filterChain.doFilter(servletRequest,servletResponse);
         System.out.println("Filter 1 - encoding ends");
     }

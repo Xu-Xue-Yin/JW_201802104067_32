@@ -23,7 +23,6 @@ public class LoginController extends HttpServlet {
         try {
             User loggedUser = UserService.getInstance().login(username, password);
             if (loggedUser != null) {
-                response.setContentType("text/html;charset=UTF-8");
                 message.put("message", "登陆成功");
                 HttpSession session = request.getSession();
                 //十分钟没有操作，则session失效
